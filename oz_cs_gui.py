@@ -226,7 +226,10 @@ def main():
     root.title("Oz Comics Search") # TITLE OF THE WINDOW
     root.minsize(600,300)
     #TODO ADD iCON THAT WORKS
-    root.iconbitmap( './src/icon.ico')
+    try:
+        root.iconbitmap( 'icon.ico')
+    except TclError:
+        pass
     #root.geometry("1080x600") # SIZE AT STARTUP
 
     make_textmenu(root)
@@ -258,11 +261,13 @@ def main():
 
 
     # LOGO ROW = 1
-
-    canvas = Canvas(left_frame, width = 300, height = 100)
-    canvas.grid(row=1, column=1, columnspan=2)
-    img = PhotoImage(file="src/logo.png")
-    canvas.create_image(0,0, anchor=NW, image=img)
+    try:
+        canvas = Canvas(left_frame, width = 300, height = 100, bg = bg_left)
+        canvas.grid(row=1, column=1, columnspan=2)
+        img = PhotoImage(file="src/logo.png")
+        canvas.create_image(0,0, anchor=NW, image=img)
+    except TclError:
+        canvas.create_text(150,50,text = "Oz Comics Search", justify = CENTER, font = 'Helvetica 24')
 
     # LABEL ROW = 2
     search_label = Label(left_frame, text="Search for trade, issue, graphic novels...", bg = bg_left)
