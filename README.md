@@ -6,6 +6,8 @@
 - Mac (soon)
 - Linux (soon)
 
+![Screenshotv0.1](https://github.com/a-xavier/oz_comics_search/blob/main/src/screenshot_v0,1.png?raw=true)
+
 ### Why
 Because I live in a part of Australia with no local comic book store and found myself ordering online a lot, trying as much as possible to stick to Australian stores and limit ordering from big chains (Amazon AU, Bookdepository UK).
 However both price and inventory varies a lot bwteen store so I ended up loosing time checking availability / comparing price.
