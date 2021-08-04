@@ -1,5 +1,5 @@
 # Oz Comics Search
-## Support your (geographically distant) local comic book store.
+## Support your (geographically distant) local comic book store (online).
 
 ### Download GUI app
 - To come (will bundle the gui script with pyinstaller or py2app)
