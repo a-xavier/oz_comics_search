@@ -2,11 +2,15 @@
 ## Support your (geographically distant) local comic book store (online).
 
 ### Download GUI app
-- To come (will bundle the gui script with pyinstaller or py2app)
+- [Windows](https://github.com/a-xavier/oz_comics_search/releases/download/v0.1/Oz.Comics.Search.zip)
+- Mac (soon)
+- Linux (soon)
 
 ### Why
 Because I live in a part of Australia with no local comic book store and found myself ordering online a lot, trying as much as possible to stick to Australian stores and limit ordering from big chains (Amazon AU, Bookdepository UK).
 However both price and inventory varies a lot bwteen store so I ended up loosing time checking availability / comparing price.
+
+Also I wanted to learn a bit of BeautifulSoup and TkInter.
 
 ### How (does it works)
 Oz Comics Search is very simple. 
@@ -48,5 +52,6 @@ I'm more of a trade person so I only kept stores with :
 ### Caveat
 Since this script works through web page scrapping, it **WILL** break if any changes are made to the store's online store (All store searches are functional as of 04/08/2021).
 Code is also messy, I need to replace individual function for each store to a store class with a search method in the future.
+Also needs refinement of volume/issue number. Better parsing/filtering
 
 (MIT LICENCE)
