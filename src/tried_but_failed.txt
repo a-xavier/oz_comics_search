@@ -1,0 +1,5 @@
+- kingcomics: obscure website, all is shopify scripts/links
+- kaboomcomicsaustralia: showing out of stock comics on search only AFTER clicking on them
+
+- big city comics: no online store
+- heroeshq: good store but search is two step 1 series then 2 issue/volume
