@@ -13,8 +13,8 @@ Oz Comics Search is very simple.
 It takes a simple search term (the name of a series) and optionally a book type (Trade / Issue) and a book number.
 It then interrogate what would be the first web-page of results on each store and scrape the Title / Price / URL.
 
-### Which Store are included 
-Stores searches are (in alphabetical order):
+### Which Store is included 
+Oz Comics Search checks the following stores (in alphabetical order):
 - [AllStar Comics](https://allstarcomics.com.au/) - Melbourne
 - Amazon AU (only books shipped by Amazon AU from AU)
 - [Area 52](https://area52.circlesoft.net/) - Hobart
@@ -44,5 +44,9 @@ I'm more of a trade person so I only kept stores with :
     - ```python oz_comic_search.py "search term in quotes" -b issue/trade -n number``` General Synthax (-b and -n are optional)
     - ```python oz_comic_search.py "batman flash button" -b issue```  for all single issues of BATMAN/THE FLASH the button
     -  ```python oz_comic_search.py "paper girls" -b trade` -n 6``` for the 6th Trade of Paper Girls 
+
+### Caveat
+Since this script works through web page scrapping, it **WILL** break if any changes are made to the store's online store (All store searches are functional as of 04/08/2021).
+Code is also messy, I need to replace individual function for each store to a store class with a search method in the future.
 
 (MIT LICENCE)
