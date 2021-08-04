@@ -24,7 +24,8 @@ Oz Comics Search checks the following stores (in alphabetical order):
 - [AllStar Comics](https://allstarcomics.com.au/) - Melbourne
 - Amazon AU (only books shipped by Amazon AU from AU)
 - [Area 52](https://area52.circlesoft.net/) - Hobart
-- BookDepository and Booktopia
+- [BookDepository](https://www.bookdepository.com/) (Not a comic book store but wide range and free shipping to Australia)
+- [Booktopia](https://www.booktopia.com.au/) (Not a comic book store but wide range and "Australian owned")
 - [ComicsEtc](https://www.comicsetc.com.au/) - Brisbane
 - [Comics'R'Us](https://comicsrus.com.au/) - Melbourne/Windsor
 - [Greenlight Comics](https://greenlightcomics.com/) - Adelaide
