@@ -19,7 +19,7 @@ def secrethq_search(search_string):
     search_list = [x.lower() for x in search_list]
     if "volume" in search_list:
         search_list = [ "vol" if x=="volume" else x for x in search_list]
-    
+
     full_search_url = base_search_url + separator.join(search_list)
     #print(full_search_url)
 
@@ -34,23 +34,25 @@ def secrethq_search(search_string):
         soup = BeautifulSoup(text_response, 'html.parser')
 
         # GET ALL OBJECTS WITH CLASS=ARTICLE
-        list_of_products = soup.find_all('div', class_='product-index desktop-3 mobile-half') + soup.find_all('div', class_='product-index desktop-3 mobile-half first') 
+        list_of_products = soup.find_all('div', class_='product-index desktop-3 mobile-half') + soup.find_all('div', class_='product-index desktop-3 mobile-half first')
 
         #print(list_of_products)
-        
+
         for article in list_of_products:
             comic_title = article.span.text.strip()
 
             comic_url = "https://secrethqcomics.com.au"+ article.a["href"]
-
-            comic_price = article.find("div", class_="prod-price").text
+            try:
+                comic_price = article.find("div", class_="prod-price").text
+            except AttributeError: # NONETYPE HAS NO ATTRIBUTE TEXT HAPPEN IF SALE
+                comic_price = article.find("div", class_="onsale").text
             comic_price = float(comic_price.replace("$", ""))
 
             if not article.find("div", class_="so icn"):
                 availability = "In Stock"
             else:
                 availability = "Sold Out"
-                
+
             comic = {"title": comic_title,
                      "url": comic_url,
                      "price": comic_price,
@@ -60,7 +62,7 @@ def secrethq_search(search_string):
             # DO SOME MATCHING
             # CRUDE = TAKE ALL 3+ LETTER WORDS IN SEARCH AND SEE IF THEY ARE IN COMIC TITLE
             list_word_search = [x.lower() for x in search_list if len(x)> 2]
-            
+
             list_word_title = comic_title.split(" ")
             list_word_title = [x.lower() for x in list_word_title if len(x)> 2]
             # REMOVE COLONS
@@ -73,9 +75,9 @@ def secrethq_search(search_string):
                 if availability == "In Stock":
                     result_holder.append(comic)
 
-            
-        
-    # ON FAILURE    
+
+
+    # ON FAILURE
     else:
         print('An error has occurred searching Secret HQ Comics.')
 

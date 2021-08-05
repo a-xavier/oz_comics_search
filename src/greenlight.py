@@ -56,8 +56,8 @@ def greenlight_search(search_string):
                 r = requests.get(comic_url, headers={"User-Agent":"Defined"})
                 if r:
                     book_soup = BeautifulSoup(r.text, 'html.parser')
-
-                    if not book_soup.find("p", class_="stock out-of-stock"): # IT IT'S THERE IT'S OUT OF STOCK:
+                            # IF IT'S THERE IT'S OUT OF STOCK                   # IF IT CAN FIND A PRICE
+                    if not book_soup.find("p", class_="stock out-of-stock") and book_soup.find("p", class_="price") :
 
                         comic_price = book_soup.find("p", class_="price").text.strip()
 
