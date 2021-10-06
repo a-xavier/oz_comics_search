@@ -2,9 +2,7 @@
 ## Support your (geographically distant) local comic book store (online).
 
 ### Download GUI app
-- [Windows](https://github.com/a-xavier/oz_comics_search/releases/download/v0.1/Oz.Comics.Search.zip)
-- Mac (soon)
-- Linux (soon)
+- [Windows](https://github.com/a-xavier/oz_comics_search/releases/download/v0.2/Oz.Comics.Search.zip)
 
 ![Screenshotv0.1](https://github.com/a-xavier/oz_comics_search/blob/main/src/screenshot_v0,1.png?raw=true)
 
