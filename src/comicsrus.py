@@ -70,7 +70,11 @@ def comicsrus_search(search_string):
             list_word_title = [x.lower() for x in list_word_title if len(x)> 2]
             # REMOVE COLONS, coma
             list_word_title = [x.replace(":","") for x in list_word_title]
+            list_word_title = [x.replace(";","") for x in list_word_title]
             list_word_title = [x.replace(",","") for x in list_word_title]
+            list_word_title = [x.replace(".","") for x in list_word_title]
+            list_word_title = [x.replace("(","") for x in list_word_title]
+            list_word_title = [x.replace(")","") for x in list_word_title]
 
             #print(list_word_search)
             #print(list_word_title)

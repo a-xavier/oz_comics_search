@@ -24,10 +24,9 @@ import argparse
 
 
 
-
-
 if __name__ == "__main__":
-
+    print(amazon_search("the walking dead"))
+    """
     parser = argparse.ArgumentParser(description='Search Comics from Australian Comic Book Stores')
     parser.add_argument('term', metavar='Search Term', type=str,
                     help='The search term')
@@ -61,3 +60,4 @@ if __name__ == "__main__":
                 if key != "shop":
                     print(key + ": " + str(value))
             print("------------")
+"""

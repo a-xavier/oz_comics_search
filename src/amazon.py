@@ -24,7 +24,7 @@ def amazon_search(search_string):
     full_search_url = base_search_url + separator.join(search_list) + \
                       "&i=stripbooks&rh=n%3A4893847051%2Cp_n_prime_domestic%3A6845356051%2Cp_n_free_shipping_eligible%3A5363790051&dc&qid=1627780271&rnid=5363788051&ref=sr_nr_p_n_free_shipping_eligible_1"
 
-    #print(full_search_url)
+    print(full_search_url)
 
     #GET WEB PAGE
     response = requests.get(full_search_url, headers={"User-Agent":"Defined"})
@@ -53,9 +53,12 @@ def amazon_search(search_string):
 
                 comic_title = article.h2.text
 
+
                 #print(comic_title)
                 try:
                     comic_url = "https://www.amazon.com.au" + article.find("a", class_ = "a-link-normal s-no-outline")["href"]
+                    #print(comic_title)
+                    #print(comic_url)
 
                     #print(comic_url)
 
@@ -70,7 +73,6 @@ def amazon_search(search_string):
                              "price": comic_price,
                              "shop":shop,
                              "availability": "In Stock"}
-
                     # DO SOME MATCHING
                     # CRUDE = TAKE ALL 3+ LETTER WORDS IN SEARCH AND SEE IF THEY ARE IN COMIC TITLE
                     list_word_search = [x.lower() for x in search_list if len(x)> 2]
@@ -79,7 +81,11 @@ def amazon_search(search_string):
                     list_word_title = [x.lower() for x in list_word_title if len(x)> 2]
                     # REMOVE COLONS, coma
                     list_word_title = [x.replace(":","") for x in list_word_title]
+                    list_word_title = [x.replace(";","") for x in list_word_title]
                     list_word_title = [x.replace(",","") for x in list_word_title]
+                    list_word_title = [x.replace(".","") for x in list_word_title]
+                    list_word_title = [x.replace("(","") for x in list_word_title]
+                    list_word_title = [x.replace(")","") for x in list_word_title]
 
                     #print(list_word_search)
                     #print(list_word_title)

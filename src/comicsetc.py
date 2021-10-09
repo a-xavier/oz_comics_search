@@ -19,7 +19,7 @@ def comic_etc_search(search_string):
     search_list = [x.lower() for x in search_list]
     if "vol" in search_list:
         search_list = [ "volume" if x=="vol" else x for x in search_list]
-    
+
     full_search_url = base_search_url + separator.join(search_list)
     #print(full_search_url)
 
@@ -38,7 +38,7 @@ def comic_etc_search(search_string):
 
         # GET ALL OBJECTS WITH CLASS=ARTICLE
         list_of_articles = main_section.find_all("article")
-        
+
         for article in list_of_articles:
             comic_title = article.h4.text.strip()
 
@@ -60,6 +60,11 @@ def comic_etc_search(search_string):
             list_word_title = [x.lower() for x in list_word_title if len(x)> 2]
             # REMOVE COLONS
             list_word_title = [x.replace(":","") for x in list_word_title]
+            list_word_title = [x.replace(";","") for x in list_word_title]
+            list_word_title = [x.replace(",","") for x in list_word_title]
+            list_word_title = [x.replace(".","") for x in list_word_title]
+            list_word_title = [x.replace("(","") for x in list_word_title]
+            list_word_title = [x.replace(")","") for x in list_word_title]
 
             #print(list_word_search)
             #print(list_word_title)
@@ -67,9 +72,9 @@ def comic_etc_search(search_string):
             if all(item in list_word_title for item in list_word_search):
                 result_holder.append(comic)
 
-            
-        
-    # ON FAILURE    
+
+
+    # ON FAILURE
     else:
         print('An error has occurred searching Comics Etc.')
 

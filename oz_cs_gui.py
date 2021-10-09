@@ -227,7 +227,7 @@ def main():
     root.minsize(600,300)
     #TODO ADD iCON THAT WORKS
     try:
-        root.iconbitmap( 'icon.ico')
+        root.iconbitmap( './pic/icon.ico')
     except TclError:
         pass
     #root.geometry("1080x600") # SIZE AT STARTUP
@@ -264,7 +264,7 @@ def main():
     try:
         canvas = Canvas(left_frame, width = 300, height = 100, bg = bg_left)
         canvas.grid(row=1, column=1, columnspan=2)
-        img = PhotoImage(file="src/logo.png")
+        img = PhotoImage(file="./pic/logo.png")
         canvas.create_image(0,0, anchor=NW, image=img)
     except TclError:
         canvas.create_text(150,50,text = "Oz Comics Search", justify = CENTER, font = 'Helvetica 24')

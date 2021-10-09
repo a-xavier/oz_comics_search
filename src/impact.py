@@ -21,7 +21,7 @@ def impact_search(search_string):
     if "volume" in search_list or "vol":
         search_list = [ "vol" if x=="volume" else x for x in search_list]
 
-    
+
     full_search_url = base_search_url + separator.join(search_list) + "&post_type=product"
     #print(full_search_url)
 
@@ -34,11 +34,11 @@ def impact_search(search_string):
     if response: # RESPONSE OK
         text_response = response.text
         soup = BeautifulSoup(text_response, 'html.parser')
-        
+
 
         # GET ALL OBJECTS WITH CLASS=ARTICLE
         list_of_products = soup.find_all("a", class_ = "woocommerce-LoopProduct-link woocommerce-loop-product__link")
-        
+
         for article in list_of_products:
             comic_title = article.h2.text
 
@@ -47,7 +47,7 @@ def impact_search(search_string):
                 comic_url =article["href"]
 
                 comic_price = article.bdi.text
-                
+
                 comic_price = float(comic_price.replace("$", ""))
 
                 availability = article.p.text
@@ -61,11 +61,16 @@ def impact_search(search_string):
                 # DO SOME MATCHING
                 # CRUDE = TAKE ALL 3+ LETTER WORDS IN SEARCH AND SEE IF THEY ARE IN COMIC TITLE
                 list_word_search = [x.lower() for x in search_list if len(x)> 2]
-                
+
                 list_word_title = comic_title.split(" ")
                 list_word_title = [x.lower() for x in list_word_title if len(x)> 2]
                 # REMOVE COLONS
                 list_word_title = [x.replace(":","") for x in list_word_title]
+                list_word_title = [x.replace(";","") for x in list_word_title]
+                list_word_title = [x.replace(",","") for x in list_word_title]
+                list_word_title = [x.replace(".","") for x in list_word_title]
+                list_word_title = [x.replace("(","") for x in list_word_title]
+                list_word_title = [x.replace(")","") for x in list_word_title]
 
                 #print(list_word_search)
                 #print(list_word_title)
@@ -73,7 +78,7 @@ def impact_search(search_string):
                 if all(item in list_word_title for item in list_word_search):
                     if availability == "In stock":
                         result_holder.append(comic)
-    # ON FAILURE    
+    # ON FAILURE
     else:
         print('An error has occurred searching {}.'.format(shop))
 

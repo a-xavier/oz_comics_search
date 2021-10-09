@@ -16,10 +16,10 @@ def filtering_results(results, book_type, number):
     issue_signs = ["#"]
 
     for book in results:
-        if any(x in book["title"].lower() for x in paperback_signs):
-            book["type"] = "trade"
-        elif any(x in book["title"].lower() for x in issue_signs):
+        if any(x in book["title"].lower() for x in issue_signs):
             book["type"] = "issue"
+        elif any(x in book["title"].lower() for x in paperback_signs):
+            book["type"] = "trade"
         else:
             book["type"] = "unknown (assume trade)"
 
